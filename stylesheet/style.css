@@ -4,4 +4,136 @@
   padding: 0;
   margin: 0;
 }
+
+.form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr 2fr 1fr;
+      grid-template-columns: 1fr 2fr 2fr 1fr;
+  -ms-grid-rows: 20vh 80vh 20vh;
+      grid-template-rows: 20vh 80vh 20vh;
+}
+
+.form .form-left {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  background-color: #3e5b91;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px;
+  border-radius: 15px 0 0 15px;
+}
+
+.form .form-left #fullName {
+  height: 60px;
+  width: 100%;
+}
+
+.form .form-left #phoneNumber {
+  height: 60px;
+  width: 100%;
+}
+
+.form .form-left .box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.form .form-left .box button {
+  width: 49%;
+  height: 60px;
+  background-color: #298a97;
+  margin: 15px 0;
+  color: white;
+}
+
+.form .form-left table {
+  width: 100%;
+  height: 150px;
+  background-color: white;
+  border: black 1px solid;
+}
+
+.form .form-right {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  background-color: #173469;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px;
+  border-radius: 0px 15px 15px 0;
+}
+
+.form .form-right #searchByName {
+  height: 60px;
+  width: 100%;
+}
+
+.form .form-right h2 {
+  color: white;
+}
+
+.form .form-right .box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.form .form-right .box button {
+  width: 49%;
+  height: 60px;
+  background-color: #298a97;
+  margin: 15px 0;
+  color: white;
+}
+
+.form .form-right .box input {
+  width: 49%;
+  height: 60px;
+}
+
+.form .form-right #searchByPhone {
+  width: 100%;
+  height: 60px;
+}
+
+input {
+  margin: 15px 0;
+  padding: 5px;
+}
+
+table {
+  margin: 15px 0;
+}
 /*# sourceMappingURL=style.css.map */

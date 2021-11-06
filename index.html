@@ -8,6 +8,45 @@
     <title>Lab1</title>
 </head>
 <body>
-    
+    <div class="form">
+        <div class="form-left">
+            <input type="text" id="fullName" placeholder="Full Name">
+            <input type="text" id="phoneNumber" placeholder="Phone Number">
+            <div class="box">
+                <button type="button">Add Contact</button>
+                <button type="button">Show Contact</button>
+            </div>
+            <table id="contactsTable">
+                <tr>
+                    <th>Name</th>
+                    <th>Phone Number</th>    
+                </tr>
+            </table>
+        </div>
+        <div class="form-right">
+            <h2>Search for Contacts</h2>
+            <input type="text" id="searchByName" placeholder="Name">
+            <div class="box">
+                <button type="button" id="btnByName">Search</button>
+                <input type="text" id="showPhoneNumber" disabled>
+            </div>
+            <input type="text" id="searchByPhone" placeholder="Phone Number">
+            <div class="box">
+                <button type="button" id="btnByPhone">Search</button>
+                <input type="text" id="showName" disabled>
+            </div>
+        </div>
+    </div>
+    <script>
+        function addContacts() {
+            var fullName = document.getElementById("fullName").value;
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            if (fullName == "" || phoneNumber == "") {
+                alert("Please enter both name and phone number");
+            }else {
+                var name = fullName;
+            }
+        }
+    </script>
 </body>
 </html>
