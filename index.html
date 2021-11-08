@@ -13,8 +13,8 @@
             <input type="text" id="fullName" placeholder="Full Name">
             <input type="text" id="phoneNumber" placeholder="Phone Number">
             <div class="box">
-                <button type="button">Add Contact</button>
-                <button type="button">Show Contact</button>
+                <button type="button" onclick="addContact();">Add Contact</button>
+                <button type="button" onclick="showContacts();">Show Contact</button>
             </div>
             <table id="contactsTable">
                 <tr>
@@ -27,26 +27,141 @@
             <h2>Search for Contacts</h2>
             <input type="text" id="searchByName" placeholder="Name">
             <div class="box">
-                <button type="button" id="btnByName">Search</button>
-                <input type="text" id="showPhoneNumber" disabled>
+                <button type="button" id="btnByName" onclick="searchPhoneByName();">Search</button>
+                <p id="showPhoneNumber"></p>
+                <!-- <input type="text" id="showPhoneNumber" disabled> -->
             </div>
             <input type="text" id="searchByPhone" placeholder="Phone Number">
             <div class="box">
-                <button type="button" id="btnByPhone">Search</button>
-                <input type="text" id="showName" disabled>
+                <button type="button" id="btnByPhone" onclick="searchNameByPhone();">Search</button>
+                <p id="showName"></p>
             </div>
         </div>
     </div>
     <script>
-        function addContacts() {
+        // add
+        let users = [];
+            // index = 0 , users[0]
+            // { 
+                // name: "miyamoto",
+                // phone: "08038543270",
+            // },
+            // index = 1, users[1]で下のまとまり取れる、users[1].nameでogataがとれる。users[1].phoneで電話番号がとれる。
+            // {
+            //     name: "ogata",
+            //     phone: "0120117117"
+            // },
+        
+
+        // ↑usersに入れる
+        function addContact () {
             var fullName = document.getElementById("fullName").value;
             var phoneNumber = document.getElementById("phoneNumber").value;
             if (fullName == "" || phoneNumber == "") {
-                alert("Please enter both name and phone number");
-            }else {
-                var name = fullName;
+                alert("please enter both your name ans phone number");
+            } else {
+            // {
+            //     name: "ogata",
+            //     phone: "0120117117"
+            // },
+                var user = {
+                    name: fullName,
+                    phone: phoneNumber,
+                };
+                users.push(user);
+                document.getElementById("fullName").value="";
+                document.getElementById("phoneNumber").value="";
             }
         }
+
+        // usersを画面に表示
+        function showContacts(){
+            //ここ
+            var tableobj = document.getElementById("contactsTable");
+            tableobj.innerHTML = "<tr><th>Name</th><th>Phone number</th></tr>"
+            for(var key in users){
+                console.log("::::::コンソールログなう： ", key)
+                tableobj.innerHTML+="<tr><td>"+users[key].name+"</td><td>"+users[key].phone+"</td></tr>";
+            }
+        }
+
+        // function serchContacts(){
+        //     var result = users.some((u) => u.name === ["miyamoto"]);
+        //     if (result) {
+        //         console.log(":::: ユーザーを取得", getUser);
+        //     } else {
+        //         // データが存在しなかった時の処理
+        //         console.log(":::: 失敗です。");
+        //     }
+        // }
+
+
+            // {
+            //     name: "ogata",
+            //     phone: "0120117117"
+            // },
+        
+
+
+        function searchPhoneByName() {
+            var fetchUser = {}; // fetchUserには、名前を検索して、検索したuserを入れる。
+            var name = document.getElementById("searchByName").value;
+            if(name == "") {
+                alert("please enter a name");
+            } else {
+                for(var index in users) {
+                    // indexは0とか1とかのindex番号
+
+                    console.log(":::: ここがindex通りました: ", index); // indexは何かわからんから、その正体をみるために、console.log(index)でindexの変数の中をみた
+                    
+                    // users[index] でusers
+                    if(name == users[index].name) {
+                        // fetchUserに入れる。
+                        fetchUser = users[index];
+                    }
+                }
+            }
+            // getPhoneは電話番号が入ってる。
+            var getPhone = fetchUser.phone;
+
+            // document.getElementById("showPhoneNumber"); で <p>タグを取得。
+            // https://www.sejuku.net/blog/26442
+            var showPhoneNumber = document.getElementById("showPhoneNumber");
+
+            // 取得した <p>ここ<p> にgetPhoneを入れる
+            showPhoneNumber.innerHTML = getPhone;
+        }
+
+        function searchNameByPhone() {
+            var fetchUser = {}; // fetchUserには、名前を検索して、検索したuserを入れる。
+            var phone = document.getElementById("searchByPhone").value;
+            if(phone == "") {
+                alert("please enter a phone number");
+            } else {
+                for(var index in users) {
+                    // indexは0とか1とかのindex番号
+
+                    console.log(":::: ここがindex通りました: ", index); // indexは何かわからんから、その正体をみるために、console.log(index)でindexの変数の中をみた
+                    
+                    // users[index] でusers
+                    if(phone == users[index].phone) {
+                        // fetchUserに入れる。
+                        fetchUser = users[index];
+                    }
+                }
+            }
+            // getPhoneは電話番号が入ってる。
+            var getName = fetchUser.name;
+
+            // document.getElementById("showPhoneNumber"); で <p>タグを取得。
+            // https://www.sejuku.net/blog/26442
+            var showPhoneNumber = document.getElementById("showPhoneNumber");
+
+            // 取得した <p>ここ<p> にgetPhoneを入れる
+            showName.innerHTML = getName;
+        }
+
+        
     </script>
 </body>
 </html>

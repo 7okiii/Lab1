@@ -1,7 +1,6 @@
 * {
     box-sizing: border-box;
     padding: 0;
-    margin: 0;
 }
 
 @mixin input {
@@ -45,9 +44,12 @@
         }
         table {
             width: 100%;
-            height: 150px;
+            height: 250px;
+            max-height: 250px;
             background-color: white;
             border: black 1px solid;
+            overflow: hidden;
+            text-align: center;
         }
     }
     .form-right {
@@ -68,6 +70,7 @@
         .box {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             button {
                 @include btn;
             }
@@ -75,6 +78,15 @@
                 width: 49%;
                 height: 60px;
             }
+            p {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                background-color: white;
+                height: 59px;
+                width: 50%;
+            }    
         }
         #searchByPhone {
             width: 100%;
@@ -87,7 +99,6 @@ input {
     margin: 15px 0;
     padding: 5px;
 }
-
 
 table {
     margin: 15px 0;
